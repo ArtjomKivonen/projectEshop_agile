@@ -39,10 +39,15 @@ class Controller{
 
 	public static function newsList(){
 		$categories= Model::getCategorylist();
+        $types= Model::getTypesList();
+        $fabrics= Model::getFabricslist();
 		$rows=Model::getNewslist();
 		$countNews=count($rows);
 		include_once('view/newsList.php');
 	}
+
+
+
 
 // Page Blog Article List
 
@@ -66,7 +71,11 @@ class Controller{
 	public static function newsByCategory($id)	{
 		$categories=Model::getCategoryList();
 		$categoryOne=Model::getCategoryDetail($id);
+
+        $types= Model::getTypesList();
+        $fabrics= Model::getFabricslist();
 		// ---- all news
+
 		$rows=Model::getNewsList();
 		$countNews=count($rows); // всего новостей в таблице
 		// ----------------новости по категории
@@ -75,15 +84,49 @@ class Controller{
 		include_once('view/newsList.php');
 
 	}
-	public static function textSearch($text)	{
-		$categories=Model::getCategoryList();
-		//-----------all news
-		$rows=Model::getNewsList();
-		$countNews=count($rows);
-		//------------$text 0 строка поиска
-		$rows=Model::getSearch($text);
-		include_once('view/newsList.php');
-	}
+
+    public static function productsByType($id)	{
+        $types=Model::getTypesList();
+        $typeOne=Model::getTypesDetail($id);
+
+        $categories=Model::getCategoryList();
+        $fabrics=Model::getFabricsList();
+        // ---- all news
+        $rows=Model::getNewsList();
+        $countNews=count($rows); // всего новостей в таблице
+        // ----------------новости по категории
+        $rows=Model::getProductsByType($id);
+        //------------------
+        include_once('view/newsList.php');
+
+    }
+
+
+    public static function productsByFabric($id)	{
+        $fabrics=Model::getFabricsList();
+        $fabricOne=Model::getFabricsDetail($id);
+
+        $categories=Model::getCategoryList();
+        $types= Model::getTypesList();
+        // ---- all news
+        $rows=Model::getNewsList();
+        $countNews=count($rows); // всего новостей в таблице
+        // ----------------новости по категории
+        $rows=Model::getProductsByFabrics($id);
+        //------------------
+        include_once('view/newsList.php');
+
+    }
+
+//	public static function textSearch($text)	{
+//		$categories=Model::getCategoryList();
+//		//-----------all news
+//		$rows=Model::getNewsList();
+//		$countNews=count($rows);
+//		//------------$text 0 строка поиска
+//		$rows=Model::getSearch($text);
+//		include_once('view/newsList.php');
+//	}
 
 	//--------------добавление комментариев по id новости
 	public static function commentsAdd($id) {

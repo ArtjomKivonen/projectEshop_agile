@@ -12,6 +12,7 @@ $title = $row['nameProduct']; // заголовок
 		echo $row['descriptionProduct'];
 		echo '<h5>Дата: '.$row['date'].'</h5>';
 		echo '<p><i>Категория: </i>'.$row['nameCategory'].'</p>';
+        echo '<a href="cartAdd?id='.$row['idProduct'].'">Добавить в корзину</a>';
 		?>
 		<div style="clear:both"></div>
 		<?php
@@ -25,7 +26,7 @@ $title = $row['nameProduct']; // заголовок
 			}
 		}
 		echo '<div style="height: 40px; width:300px; clear:both;">';
-		echo '<a href="shop">Магазин</a>';//ссылка на маршрут news - список новостей
+		echo '<a href="shop">Магазин</a>';//ссылка на магазин
 		echo '</div>';
 		?>
 	</div>

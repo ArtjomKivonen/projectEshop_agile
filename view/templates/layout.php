@@ -60,6 +60,9 @@
 						</ul>
 					</li>							
 				<?php } ?>
+                <li>
+                    <a href="cart"><i class="fa fa-shopping-cart"></i>Cart(<span id="cart-count"><?php modelCart::countItems(); ?></span>)</a>
+                </li>
 
 
 

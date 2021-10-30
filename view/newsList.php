@@ -12,16 +12,16 @@ if(isset($categoryOne)) $title.=' - '.$categoryOne['nameCategory'];
 				<p class="woocommerce-result-count">
 					 Showing 1–8 of <?php $countNews; ?> results
 				</p>
-				<form class="woocommerce-ordering" method="get">
-					<select name="orderby" class="orderby">
-						<option value="menu_order" selected="selected">Default sorting</option>
-						<option value="popularity">Sort by popularity</option>
-						<option value="rating">Sort by average rating</option>
-						<option value="date">Sort by newness</option>
-						<option value="price">Sort by price: low to high</option>
-						<option value="price-desc">Sort by price: high to low</option>
-					</select>
-				</form>
+<!--				<form class="woocommerce-ordering" method="get">-->
+<!--					<select name="orderby" class="orderby">-->
+<!--						<option value="menu_order" selected="selected">Default sorting</option>-->
+<!--						<option value="popularity">Sort by popularity</option>-->
+<!--						<option value="rating">Sort by average rating</option>-->
+<!--						<option value="date">Sort by newness</option>-->
+<!--						<option value="price">Sort by price: low to high</option>-->
+<!--						<option value="price-desc">Sort by price: high to low</option>-->
+<!--					</select>-->
+<!--				</form>-->
 	<aside>
 		<h3>Категории</h3>
 		<ul>
@@ -35,6 +35,32 @@ if(isset($categoryOne)) $title.=' - '.$categoryOne['nameCategory'];
 		}
 		?>
 		</ul>
+        <h3>Тип</h3>
+
+        <ul>
+            <?php
+            foreach ($types as $type) {
+                echo '<li>';
+                echo '<a href="type?id='.$type['idType'].'">';
+                echo $type['nameType'].'('.$type['countNews'].')</a>';
+                echo '</li>';
+            }
+            ?>
+
+
+        </ul>
+        <h3>Материал</h3>
+        <ul>
+            <?php
+            foreach ($fabrics as $fabric) {
+                echo '<li>';
+                echo '<a href="fabric?id='.$fabric['idFabric'].'">';
+                echo $fabric['nameFabric'].'('.$fabric['countNews'].')</a>';
+                echo '</li>';
+            }
+            ?>
+
+        </ul>
 	</aside>
 		<ul class="products">
 			<?php
@@ -48,7 +74,7 @@ if(isset($categoryOne)) $title.=' - '.$categoryOne['nameCategory'];
 					}else{
 						echo '<li class="product">';
 					}
-					echo '<a href="shop-single.html">';
+                    echo '<div class="detail-link"><a href="detail?id='.$row['idProduct'].'">Details</a></div>';
 					echo '<span class="onsale">Sale!</span>';
 					echo '<img src="images/'.$row['imageProduct'].'"alt="'.$row['nameProduct'].'"class="prodListImg">';
 					echo '<p>'.$row['nameProduct'].'</p>';

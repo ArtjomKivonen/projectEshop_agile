@@ -64,6 +64,22 @@ elseif($path=='category'){
 	}
 }
 
+elseif($path=='type'){
+	if(isset($_GET['id'])){
+		$response= Controller::productsByType($_GET['id']);
+	}else{
+		$response= Controller::error404();
+	}
+}
+
+elseif($path=='fabric'){
+	if(isset($_GET['id'])){
+		$response= Controller::productsByFabric($_GET['id']);
+	}else{
+		$response= Controller::error404();
+	}
+}
+
 // elseif ($path=='search') {	//Просмотр поиск
 // 	if(isset($_GET['text'])){
 // 		$response = Controller::textSearch($_GET['text']);
@@ -71,12 +87,28 @@ elseif($path=='category'){
 // 		$response = Controller::error404();
 // 	}
 // }
+elseif ($path =='cart'){
+	$response = controllerCart::cartView();
+}
 
-// elseif ($path =='cartAdd' && isset($_GET['id'])) {
-// 	controllerCart::actionAdd($_GET['id']);
-// 	//print_r($SESSION['products']);
-// 	$response = Controller::newsDetail($_GET['id']);
-// }
+ elseif ($path =='cartAdd' && isset($_GET['id'])) {
+ 	controllerCart::actionAdd($_GET['id']);
+// 	print_r($SESSION['products']);
+	 $response=Controller::newsDetail($_GET['id']);
+}
+
+elseif ($path =='cartDelete' && isset($_GET['id'])) {
+	controllerCart::actionDelete($_GET['id']);
+// 	print_r($SESSION['products']);
+	$response=controllerCart::cartView();
+}
+
+elseif ($path =='cartClear') {
+	controllerCart::actionCartClear();
+// 	print_r($SESSION['products']);
+	$response=controllerCart::cartView();
+}
+
 
 // ................. login - logout
 elseif ($path=='login' || $path=='register') {//формы
