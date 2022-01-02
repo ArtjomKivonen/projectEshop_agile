@@ -13,7 +13,7 @@ class database {
         $this->host = 'localhost';//hostname
         $this->user = 'root';//username
         $this->password = '';//password
-        $this->baseName = 'kivonen_aleksejenko_eshop';//database name!!!!
+        $this->baseName = 'kivonen_aleksejenko.eshop';//database name!!!!
         $this->connect();//метод - функция соединение с БД
     }
 
