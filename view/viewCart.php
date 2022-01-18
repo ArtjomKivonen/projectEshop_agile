@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$title="Корзина";
+$title="";
 ?>
 <?php
 if (isset($productsInCart)) {
@@ -8,7 +8,7 @@ if (isset($productsInCart)) {
 ?>
 
 <section id="cart_items">
-    <h1>Shopping Cart</h1>
+    <h1>Корзина</h1>
 
     <div class="shopping-cart">
 
@@ -23,7 +23,7 @@ if (isset($productsInCart)) {
 
 <?php
 foreach ($products as $product){
-?>
+?>      <br>
         <div class="product">
             <div class="cartview-image">
                 <img class="imageincart"src="images/<?php echo $product['imageProduct']; ?>">
@@ -41,8 +41,9 @@ foreach ($products as $product){
                     <a href="cartDelete?id=<?php echo $product['idProduct']; ?>">Удалить из корзины</a>
                 </button>
             </div>
-            <div class="product-line-price">25.98</div>
+            <div class="product-line-price"><?php echo $productsInCart[$product['idProduct']]*$product['price']; ?></div>
         </div>
+        <br>
     <?php
 }
  //foreach
@@ -67,7 +68,7 @@ foreach ($products as $product){
 <!--            <div class="product-line-price">45.99</div>-->
 <!--        </div>-->
 
-<!--        <div class="totals">-->
+        <div class="totals">
 <!--            <div class="totals-item">-->
 <!--                <label>Subtotal</label>-->
 <!--                <div class="totals-value" id="cart-subtotal">71.97</div>-->
@@ -86,11 +87,11 @@ foreach ($products as $product){
             </div>
         </div>
     <button class="checkout"><a href="cartClear">Очистить корзину</a></button>
-    <button class="checkout"><a href="cartChecout">К оплате</a></button>
+    <button class="checkout"><a href="cartCheckout">К оплате</a></button>
         <?php
 }
-//         else
-//             echo "<h3>Корзина пуста</h3>";
+        else
+            echo "<h3 class='cartempty'>Корзина пуста</h3>";
          ?>
     </div>
 

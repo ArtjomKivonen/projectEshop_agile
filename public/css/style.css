@@ -261,10 +261,11 @@ img {
 img.imageincart{
 	width:100px;
 	height:auto;
+
 }
 .prodListImg {
- 	width: 25%;
- 	height: 25%;
+ 	width: 15%;
+ 	height: auto;
 }
 ul,ol {
 	margin:0 0 1.5em 3em;
@@ -2146,6 +2147,7 @@ a.portfoliotype:last-child:after {
 }
 .woocommerce ul.products li.product {
 	transition:all 0.3s;
+	float:right
 }
 .woocommerce ul.products li.product:hover {
 	border:1px solid #eee;
@@ -2156,6 +2158,12 @@ a.portfoliotype:last-child:after {
 	font-size:1.1em;
 	font-weight:400;
 }
+
+/*ul.products{*/
+/*	width:40%;*/
+
+/*}*/
+
 .woocommerce form.login, .woocommerce form.register {
 	padding: 20px;
 	margin: 1em 0;
@@ -2780,5 +2788,64 @@ input {
 	}
 }
 }
+
 }
 
+.entry-thumbnail{
+	float:left;
+}
+.categoryMenu{
+	position: absolute;
+	
+	width: 15%;
+	height: auto;
+	float: left;
+	clear: none;
+}
+ul.products{
+	
+	float:left;
+	width: 100%;
+	/*width:50%;*/
+	/*padding-bottom: 50%;
+	margin-bottom:50%;*/
+
+}
+li.product{
+	float:left;
+	
+}
+
+div.entry-thumbnail{
+	padding:5px;
+	margin:5px;
+}
+
+
+/*div.products{*/
+/*	float: none;*/
+/*}*/
+/*div.container{
+	padding-bottom: 5%;
+	margin-bottom:5%;
+}
+*/
+/*footer{
+	padding-top: 10%;
+	margin-top: 10%;
+}*/
+
+.shoplist{
+	padding-bottom: 5%;
+	margin-bottom: 5%;
+}
+
+.cont_principal{
+	padding-top: -20%;
+	margin-top: -20%;
+	padding-bottom: -30%;
+	margin-bottom: -30%;
+}
+.cartempty{
+	text-align: center;
+}

@@ -10,7 +10,11 @@ class Model {
 		//Запрос $SQL
 		//Выполнить запрос
 
-		$sql = "SELECT products.*, categories.nameCategory FROM `products`, `categories` WHERE `products`.idCategory=`categories`.idCategory ORDER BY `products`.`date` DESC LIMIT 3";
+		$sql = "SELECT products.*,categories.*, types.*, fabric.* FROM products 
+            LEFT JOIN categories on products.idCategory=categories.idCategory
+            LEFT JOIN types on products.idType=types.idType
+            LEFT JOIN fabric on products.idFabric=fabric.idFabric
+            ORDER BY `products`.`date` DESC LIMIT 3";
 
 		//создать экземпляр класса database
 		$database = new database();

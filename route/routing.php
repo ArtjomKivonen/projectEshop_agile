@@ -134,6 +134,10 @@ elseif ($path== 'comments') {// комментарии
 	}
  }
 
+elseif ($path== 'payment') {
+	$response= Controller::paymentDelivery();
+}
+
 
 else {
 	//страница не существует

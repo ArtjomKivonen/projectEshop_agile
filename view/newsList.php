@@ -1,17 +1,20 @@
 <?php
 ob_start();
-$title='Магазин';
+$title='';
 $prodClass=1;
 // заголовок для списка новостей по категории
 if(isset($categoryOne)) $title.=' - '.$categoryOne['nameCategory'];
+if(isset($typeOne)) $title.=' - '.$typeOne['nameType'];
+if(isset($fabricOne)) $title.=' - '.$fabricOne['nameFabric'];
 // if(isset($text)) $title.='<h4> Результат поиска по запросу '.$text.'</h4>';
+
 ?>
 <div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main" role="main">
-				<p class="woocommerce-result-count">
-					 Showing 1–8 of <?php $countNews; ?> results
-				</p>
+<!--				<p class="woocommerce-result-count">-->
+<!--					 Showing 1–--><?php //$countNews; ?><!-- of results-->
+<!--				</p>-->
 <!--				<form class="woocommerce-ordering" method="get">-->
 <!--					<select name="orderby" class="orderby">-->
 <!--						<option value="menu_order" selected="selected">Default sorting</option>-->
@@ -22,7 +25,9 @@ if(isset($categoryOne)) $title.=' - '.$categoryOne['nameCategory'];
 <!--						<option value="price-desc">Sort by price: high to low</option>-->
 <!--					</select>-->
 <!--				</form>-->
+<div class="categoryMenu">
 	<aside>
+
 		<h3>Категории</h3>
 		<ul>
 			<li><a href="shop">Все категории(<?php echo $countNews; ?>)</a></li>
@@ -62,39 +67,34 @@ if(isset($categoryOne)) $title.=' - '.$categoryOne['nameCategory'];
 
         </ul>
 	</aside>
+	</div>
 		<ul class="products">
 			<?php
 			if(count($rows)>0){//если есть новости в категории
 				foreach ($rows as $row) {
-					if ($prodClass==1 || $prodClass==5) {
-						echo '<li class="first product">';
-					}
-					elseif ($prodClass==4 || $prodClass==8) {
-						echo '<li class="last product">';
-					}else{
-						echo '<li class="product">';
-					}
-                    echo '<div class="detail-link"><a href="detail?id='.$row['idProduct'].'">Details</a></div>';
-					echo '<span class="onsale">Sale!</span>';
+//					if ($prodClass==1 || $prodClass==5) {
+//						echo '<li class="first product">';
+//					}
+//					elseif ($prodClass==4 || $prodClass==8) {
+//						echo '<li class="last product">';
+//					}else{
+					echo '<li class="product">';
+//					}
+                    echo '<div class="detail-link"><a href="detail?id='.$row['idProduct'].'">Подробнее</a></div>';
+					echo '<span class="onsale">Скидка!</span>';
 					echo '<img src="images/'.$row['imageProduct'].'"alt="'.$row['nameProduct'].'"class="prodListImg">';
 					echo '<p>'.$row['nameProduct'].'</p>';
 					echo '<span class="price"><span class="amount">'.$row['price'].' eu</span></span>';
-					echo '</a><a href="#" class="button">Add to cart</a>';
+					echo '</a><a href="cartAdd?id='.$row['idProduct'].'" class="button">Добавить в корзину</a>';
 					echo '</li>';
-					$prodClass++;
+//					$prodClass++;
 				}
 			}else{//если нет новостей в категории
 				echo '<h3>В этой категории нет товаров</h3>';
 
 				}
 			?>
-				<nav class="woocommerce-pagination">
-				<ul class="page-numbers">
-					<li><span class="page-numbers current">1</span></li>
-					<li><a class="page-numbers" href="#">2</a></li>
-					<li><a class="next page-numbers" href="#">→</a></li>
-				</ul>
-				</nav>
+
 							</main>
 				<!-- #main -->
 			</div>

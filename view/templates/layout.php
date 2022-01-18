@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<body class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
 <div id="page">
 	<div class="container">
 		<header id="masthead" class="site-header">
@@ -36,9 +36,9 @@
 			<ul id="menu-menu-1" class="menu">
 				<li><a href="home">Главная</a></li>
 				<li><a href="shop">Магазин</a></li>
-				<li><a href="offers.html">Акции</a></li>
+				<li><a href="offers">Акции</a></li>
 				<li><a href="blog">Блог</a></li>
-				<li><a href="payment.html">Оплата и доставка</a></li>
+				<li><a href="payment">Оплата и доставка</a></li>
 				<li><a href="contact">Контакты</a></li>
 			  <?php 
 				if (!isset($_SESSION['role'])) {
@@ -98,7 +98,7 @@
 
 	
 	
-		<div class="container"> 
+		<div class="container shoplist"> 
 			<div class="row">        
 				<!-- php code -  content    !!!!! -->
 				<?php

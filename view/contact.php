@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$title='Контакты';
+$title='';
 ?>
 
 		<div id="content" class="site-content">

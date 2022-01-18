@@ -137,6 +137,10 @@ class Controller{
 		header('Location:detail?id='.$id);//переход на маршрут для detail новости
 	}
 
+    public static function paymentDelivery() {
+        include_once('view/payment.php');
+    }
+
 }
 
 //END CLASS CONTROLLER
